@@ -563,3 +563,13 @@ section{
 
 
 /*Scroll Top*/
+#scrollup{
+    background: url('assets/images/scroll.png') no-repeat;
+    width: 40px;
+    height: 40px;
+    position:fixed;
+    bottom:50px;
+    right:20px;
+    display:none;
+    text-indent:-9999px;
+}
