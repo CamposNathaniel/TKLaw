@@ -90,23 +90,43 @@ $('#subscription-form').submit(function(e) {
 
 });
 
-(function($) {
-    $(document).ready(function(){
+
+<script>
  
-        //When distance from top = 250px fade button in/out
-        $(window).scroll(function(){
-            if ($(this).scrollTop() > 250) {
-                $('#scrollup').fadeIn(300);
-            } else {
-                $('#scrollup').fadeOut(300);
-            }
-        });
+$(function(){
  
-        //On click scroll to top of page t = 1000ms
-        $('#scrollup').click(function(){
-            $("html, body").animate({ scrollTop: 0 }, 1000);
-            return false;
-        });
+	$(document).on( 'scroll', function(){
  
-    });
-})(jQuery);
+		if ($(window).scrollTop() > 100) {
+			$('.scroll-top-wrapper').addClass('show');
+		} else {
+			$('.scroll-top-wrapper').removeClass('show');
+		}
+	});
+});
+</script>
+
+<script>
+ 
+$(function(){
+ 
+	$(document).on( 'scroll', function(){
+ 
+		if ($(window).scrollTop() > 100) {
+			$('.scroll-top-wrapper').addClass('show');
+		} else {
+			$('.scroll-top-wrapper').removeClass('show');
+		}
+	});
+ 
+	$('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+	verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+	element = $('body');
+	offset = element.offset();
+	offsetTop = offset.top;
+	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+</script>
