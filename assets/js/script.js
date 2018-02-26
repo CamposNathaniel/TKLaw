@@ -90,19 +90,23 @@ $('#subscription-form').submit(function(e) {
 
 });
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+(function($) {
+    $(document).ready(function(){
+ 
+        //When distance from top = 250px fade button in/out
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 250) {
+                $('#scrollup').fadeIn(300);
+            } else {
+                $('#scrollup').fadeOut(300);
+            }
+        });
+ 
+        //On click scroll to top of page t = 1000ms
+        $('#scrollup').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+            return false;
+        });
+ 
+    });
+})(jQuery);
