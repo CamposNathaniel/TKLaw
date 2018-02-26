@@ -15,7 +15,6 @@
         <link href="assets/css/owl.carousel.css" rel="stylesheet">
         <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
-        <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -719,5 +718,28 @@
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        
+        <!-- Scroll To Top Attempts -->
+        <a id="back2Top" title="Back to top" href="#">&#10148;</a>
+        <script>
+        /*Scroll to top when arrow up clicked BEGIN*/
+$(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if (height > 100) {
+        $('#back2Top').fadeIn();
+    } else {
+        $('#back2Top').fadeOut();
+    }
+});
+$(document).ready(function() {
+    $("#back2Top").click(function(event) {
+        event.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+
+});
+ /*Scroll to top when arrow up clicked END*/
+        </script>
     </body>
 </html>
